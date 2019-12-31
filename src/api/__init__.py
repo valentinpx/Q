@@ -1,6 +1,10 @@
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
+# Function giving a popularity score based on up/downvotes
+def popularity(image):
+    return (image.upvotes - image.downvotes)
+
 # Creating intance of Flask class: the application
 app = Flask(__name__)
 
@@ -27,3 +31,13 @@ def get_specified(id):
         return (({"id": id, "url": image.url, "votes": {"up": image.upvotes, "down": image.downvotes}}))
     else:
         return ("Not found", 404)
+
+@app.route("/api")
+def list_all():
+    images = Image.query.all()
+    dest = []
+
+    images.sort(key=popularity)
+    for image in images:
+        dest.append(get_specified(image.id))
+    return (jsonify(dest))
