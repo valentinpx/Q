@@ -6,7 +6,7 @@ Q is a modest "Q" site allowing you to vote for "Q" images.
 You can also see the list of all "Q" images sorted by popularity.
 
 ## API
-###  List of all "Q" images
+###  List of all "Q" images sorted by popularity
 ***Definition***
 - `GET /api`
 
@@ -49,6 +49,7 @@ You can also see the list of all "Q" images sorted by popularity.
     }
 }
 ```
+- `404 Not Found` if "Q" does not exist
 
 ### Get a random "Q" image
 ***Definition***
