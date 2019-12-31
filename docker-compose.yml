@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+    q:
+        build:  .
+        volumes:
+            - .:/usr/src/app
