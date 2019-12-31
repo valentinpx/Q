@@ -1,9 +1,6 @@
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
-
-# Function giving a popularity score based on up/downvotes
-def popularity(image):
-    return (image.upvotes - image.downvotes)
+from random import randint
 
 # Creating intance of Flask class: the application
 app = Flask(__name__)
@@ -19,18 +16,32 @@ class Image(db.Model):
     upvotes = db.Column(db.Integer)
     downvotes = db.Column(db.Integer)
 
+# Function(s) needed to sort
+def popularity(image):
+    return (image.upvotes - image.downvotes)
+
+def random_int(image):
+    return (randint(0, 100))
+
 # Defining what URL should trigger a function
 @app.route("/")
 def hello_world():
-    return ("Q api version 1")
+    return ("Q api version 0")
 
 @app.route("/api/<id>")
 def get_specified(id):
     image = Image.query.get(id)
+
     if (image != None):
         return (({"id": id, "url": image.url, "votes": {"up": image.upvotes, "down": image.downvotes}}))
     else:
         return ("Not found", 404)
+@app.route("/api/random-q")
+def get_random():
+    images = Image.query.all()
+
+    images.sort(key=random_int)
+    return (get_specified(images[0].id))
 
 @app.route("/api")
 def list_all():
