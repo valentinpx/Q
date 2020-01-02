@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 # Configuring database connection
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///../../db/qdb.db"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Defining the db main table with a class
@@ -38,7 +39,7 @@ def get_specified(id):
     image = Image.query.get(id)
 
     if (image != None):
-        return (({"id": id, "url": image.url, "votes": {"up": image.upvotes, "down": image.downvotes}}))
+        return ({"id": id, "url": image.url, "votes": {"up": image.upvotes, "down": image.downvotes}})
     else:
         return ("Not found", 404)
 
@@ -56,7 +57,7 @@ def list_all():
 
     images.sort(key=popularity)
     for image in images:
-        dest.append(get_specified(image.id))
+        dest.insert(0, get_specified(image.id))
     return (jsonify(dest))
 
 @app.route("/api/<id>/vote", methods = ['POST'])
@@ -65,7 +66,7 @@ def vote(id):
     up = request.args.get('up')
 
     if (image != None):
-        if (up):
+        if (up == True):
             image.upvotes += 1
         else:
             image.downvotes += 1

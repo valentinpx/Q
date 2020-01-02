@@ -53,7 +53,7 @@ You can also see the list of all "Q" images sorted by popularity.
 
 ### Get a random "Q" image
 ***Definition***
-- `GET /api/random-q
+- `GET /api/random-q`
 
 ***Response***
 - `200 OK` on success
