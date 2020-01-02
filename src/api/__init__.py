@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
 
@@ -15,6 +15,11 @@ class Image(db.Model):
     url = db.Column(db.String(200))
     upvotes = db.Column(db.Integer)
     downvotes = db.Column(db.Integer)
+
+    def __init__(self, url):
+        self.url = url
+        self.upvotes = 0
+        self.downvotes = 0
 
 # Function(s) needed to sort
 def popularity(image):
@@ -36,6 +41,7 @@ def get_specified(id):
         return (({"id": id, "url": image.url, "votes": {"up": image.upvotes, "down": image.downvotes}}))
     else:
         return ("Not found", 404)
+
 @app.route("/api/random-q")
 def get_random():
     images = Image.query.all()
@@ -52,3 +58,17 @@ def list_all():
     for image in images:
         dest.append(get_specified(image.id))
     return (jsonify(dest))
+
+@app.route("/api/<id>/vote", methods = ['POST'])
+def vote(id):
+    image = Image.query.get(id)
+    up = request.args.get('up')
+
+    if (image != None):
+        if (up):
+            image.upvotes += 1
+        else:
+            image.downvotes += 1
+        db.session.commit()
+        return (get_specified(id))
+    return ("Not found", 404)

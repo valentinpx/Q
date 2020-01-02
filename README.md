@@ -69,7 +69,7 @@ You can also see the list of all "Q" images sorted by popularity.
 ```
 ### Upvote or downvote a "Q" image
 ***Definition***
-- `POST /api/42`
+- `POST /api/<id>/vote`
 
 ***Arguments***
 - `"id":integer` new number of upvotes
