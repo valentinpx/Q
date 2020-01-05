@@ -72,7 +72,7 @@ You can also see the list of all "Q" images sorted by popularity.
 - `POST /api/<id>/vote`
 
 ***Arguments***
-- `"up":booleen` "True" if it is an upvote or "False" for downvote
+- `"up":string` "true" if it is an upvote or "false" for downvote
 
 ***Response***
 - `200 OK` on success

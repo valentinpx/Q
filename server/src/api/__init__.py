@@ -70,7 +70,7 @@ def vote(id):
     up = request.args.get('up')
 
     if (image != None):
-        if (up == True):
+        if (up == "true"):
             image.upvotes += 1
         else:
             image.downvotes += 1
