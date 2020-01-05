@@ -20,13 +20,15 @@ new Vue({
             })
         },
         vote(id, up) {
-            let dest = "False"
+            let dest = "false"
 
             if (up == true) {
-                dest = "True"
-                console.log("ui")
+                dest = "true"
             }
-            axios.post(api_path.concat("/api/", id, "/vote"), {up: dest})
+            axios.post(api_path.concat("/api/", id, "/vote?up=", dest))
+            .then(function (response) {
+                console.log(response)
+            })
         }
     },
     mounted: function() {
