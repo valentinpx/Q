@@ -9,7 +9,13 @@
     </head>
     <body>
         <div id="app">
-            <p>{{ message }}</p>
+            <button @click="vote(id, true)">Upvote</button>
+            <div>
+                <img :src="url" alt="Q image">
+                <div class="vote">{{upvotes}}</div>
+                <div class="vote">{{downvotes}}</div>
+            </div>
+            <button @click="vote(id, false)">Downvote</button>
         </div>
     </body>
     <script src="js/client.js"></script>
