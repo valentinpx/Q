@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from random import randint
 
 # Creating intance of Flask class: the application
 app = Flask(__name__)
+
+# Allowing api access from any server
+CORS(app)
 
 # Configuring database connection
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///../../db/qdb.db"
