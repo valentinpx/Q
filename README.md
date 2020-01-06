@@ -4,6 +4,7 @@ Q: "Le meilleur site de Q du MONDE ENTIER"
 
 Q is a modest "Q" site allowing you to vote for "Q" images.
 You can also see the list of all "Q" images sorted by popularity.
+Try to load "/" for a surprise
 
 ## API
 ###  List all of "Q" images sorted by popularity
