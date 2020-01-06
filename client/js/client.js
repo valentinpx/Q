@@ -22,9 +22,8 @@ new Vue({
         vote(id, up) {
             let dest = "false"
 
-            if (up == true) {
+            if (up == true)
                 dest = "true"
-            }
             axios.post(api_path.concat("/api/", id, "/vote?up=", dest))
             .then(response => {
                 console.log(response)

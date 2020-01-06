@@ -36,7 +36,7 @@ def random_int(image):
 # Defining what URL should trigger a function
 @app.route("/")
 def hello_world():
-    return ("Q api version 0")
+    return ("<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Click for a surprise</a>")
 
 @app.route("/api/<id>")
 def get_specified(id):
