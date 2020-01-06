@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Q</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <!-- Production version <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
@@ -11,7 +12,7 @@
     <body>
         <div id="app">
             <button @click="vote(id, true)">Upvote</button>
-            <div>
+            <div id="q">
                 <img :src="url" alt="Q image loading">
                 <div class="vote">{{votes.up}}</div>
                 <div class="vote">{{votes.down}}</div>

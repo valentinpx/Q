@@ -1,0 +1,36 @@
+body
+{
+    background-color: #97C93C;
+    margin: 0px;
+    display: grid;
+    height: 100vh;
+    vertical-align: middle;
+}
+
+#app
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#q
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 50px;
+    height: 40vh;
+}
+
+#q img
+{
+    height: 80%;
+    width: auto;
+}
+
+#q .vote
+{
+    position: absolute;
+}
