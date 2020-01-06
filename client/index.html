@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Q</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -11,13 +12,45 @@
     </head>
     <body>
         <div id="app">
-            <button @click="vote(id, true)">Upvote</button>
-            <div id="q">
-                <img :src="url" alt="Q image loading">
-                <div class="vote">{{votes.up}}</div>
-                <div class="vote">{{votes.down}}</div>
-            </div>
-            <button @click="vote(id, false)">Downvote</button>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="card" style="border-radius: 0 0 10px 10px;">
+                            <div class="card-body text-center">
+                                <h1 class="text-success">Le meilleur site de Q du <u>monde</u>.</h1>
+                                <p class="lead">On est un peu obsédés par les Q, du coup on a décidé de créer un site dédié à ça.</p>
+                                <p class="lead">On espère que vous aimerez tout autant que nous. Cliquez sur le bouton et découvrez des Q du monde entier, et votez pour vos préférés !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-1 text-center" style="margin-top: 20%">
+                        <button class="vote-icon upvote" @click="vote(id, true)"></button>
+                    </div>
+                    <div class="col-md-12 col-lg-7">
+                        <div v-if="id">
+                            <div class="card px-3" style="border-radius: 20px">
+                                <div class="text-right">
+                                    <span class="badge badge-success badge-pill px-2">{{votes.up}}</span>
+                                    <span class="badge badge-danger badge-pill px-2">{{votes.down}}</span>
+                                </div>
+                                <div class="text-center pb-3">
+                                    <img width="100%" :src="url" alt="Q image loading">
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div class="card p-3" style="border-radius: 20px">
+                                <div class="linear-background"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1 text-center" style="margin-top: 20%">
+                        <button class="vote-icon downvote" @click="vote(id, false)"></button>
+                    </div>
+                </div>
+            </div> 
         </div>
     </body>
     <script src="js/client.js"></script>

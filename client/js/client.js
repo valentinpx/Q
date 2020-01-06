@@ -26,7 +26,7 @@ new Vue({
                 dest = "true"
             axios.post(api_path.concat("/api/", id, "/vote?up=", dest))
             .then(response => {
-                console.log(response)
+                this.id = null;
                 this.get_random()
             })
         }

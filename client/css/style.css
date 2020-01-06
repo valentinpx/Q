@@ -1,36 +1,51 @@
-body
-{
+body {
     background-color: #97C93C;
-    margin: 0px;
-    display: grid;
-    height: 100vh;
-    vertical-align: middle;
 }
 
-#app
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+* {
+    border-radius: 15px;
 }
 
-#q
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    margin: 50px;
-    height: 40vh;
+.vote-icon {
+    width: 75px;
+    height: 75px;
+    background-color: #fff;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
 }
 
-#q img
-{
-    height: 80%;
-    width: auto;
+.vote-icon.upvote {
+    background-image: url('https://cdn1.iconfinder.com/data/icons/feather-2/24/thumbs-down-512.png');
+    transform: rotate(180deg);
 }
 
-#q .vote
-{
-    position: absolute;
+.vote-icon.downvote {
+    background-image: url('https://cdn1.iconfinder.com/data/icons/feather-2/24/thumbs-down-512.png');
+}
+
+@keyframes placeHolder {
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.linear-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolder;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 1000px 104px;
+    height: 500px;
+    position: relative;
 }
