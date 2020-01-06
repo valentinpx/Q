@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from random import randint
 
 # Creating intance of Flask class: the application
 app = Flask(__name__)
+
+# Allowing api access from any server
+CORS(app)
 
 # Configuring database connection
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///../../db/qdb.db"
@@ -32,7 +36,7 @@ def random_int(image):
 # Defining what URL should trigger a function
 @app.route("/")
 def hello_world():
-    return ("Q api version 0")
+    return ("<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Click for a surprise</a>")
 
 @app.route("/api/<id>")
 def get_specified(id):
@@ -66,7 +70,7 @@ def vote(id):
     up = request.args.get('up')
 
     if (image != None):
-        if (up == True):
+        if (up == "true"):
             image.upvotes += 1
         else:
             image.downvotes += 1
