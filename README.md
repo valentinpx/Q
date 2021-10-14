@@ -1,10 +1,9 @@
 #  Q
-
 Q: "Le meilleur site de Q du MONDE ENTIER"
 
-Q is a modest "Q" site allowing you to vote for "Q" images.
-You can also see the list of all "Q" images sorted by popularity.
-Try to load "/" for a surprise
+![preview.png preview](https://raw.githubusercontent.com/valentinpx/Q/master/preview.png)
+
+Site réalisé dans le cadre d'un test technique afin de réaliser mon stage de fin de première année à [la Quincaillerie](https://la-quincaillerie.fr/).
 
 ## API
 ###  List all of "Q" images sorted by popularity
